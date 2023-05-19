@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: gulimall-gateway
+  cloud:
+    nacos:
+      config:
+        namespace: 05cd6268-477a-4320-91e6-b64e39b06613
+        server-addr: localhost:8848
+        extension-configs:
+          - dataId: gulimall-gateway.yaml
+            group: dev
+            refresh: true

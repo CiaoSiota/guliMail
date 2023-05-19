@@ -1,14 +1,34 @@
+server:
+  port: 10000
+
 spring:
+  application:
+    name: gulimall-product
+
+
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.188.129:3306/gulimail_pms?useSSL=false
+    url: jdbc:mysql://192.168.188.129:3306/gulimail_pms?useSSL=false&useUnicode=true&characterEncoding=utf-8
     password: root
     username: root
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+#    alicloud:
+#      access-key: LTAI5t5xrGcSzafMG6AwD26X
+#      secret-key: Rr11hZCaf1chEcqlpN5t3pYT8U1FWJ
+#      oss:
+#        endpoint: oss-cn-beijing.aliyuncs.com
+
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
     db-config:
       id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
